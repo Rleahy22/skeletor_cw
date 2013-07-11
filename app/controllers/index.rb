@@ -21,7 +21,7 @@ end
 post '/create_user' do
 	@user = User.create(params[:user])
 	session[:auth] = @user.id
-	redirect "/user/#{user.id}"
+	redirect "/user/#{@user.id}"
 end
 
 get '/user/:id' do
@@ -37,7 +37,7 @@ get '/logout' do
 end
 
 get '/photos' do
-	@user = User.find(session[:auth)
+	@user = User.find(session[:auth])
 
 	erb :photos
 end
