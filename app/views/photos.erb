@@ -1,0 +1,10 @@
+<form action="/photos" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="photo[user_id]" value="<%= @user.id %>">
+  <input type="text" name="photo[title]" placeholder="Image Name">
+  <input type="file" name="photo[file]">
+  <input type="submit">
+</form>
+
+<% @user.images.each do |image| %>
+  <p><img src="<%= image.file %>"></p>
+<% end %>
